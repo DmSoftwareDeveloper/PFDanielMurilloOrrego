@@ -1,6 +1,5 @@
 import './ItemListContainer.css'
 import { useState, useEffect } from "react"
-// import {getProducts, getProductsByCategory} from "../../asyncMock"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import { db } from '../../services/firebase'
@@ -38,22 +37,6 @@ const ItemListContainer = ({greeting}) =>
           {
             setLoading(false)
           })
-
-            //CODIGO DEL ASYNCMOCK
-        /* const asyncFunc = categoryId ? getProductsByCategory : getProducts
-        asyncFunc(categoryId)
-            .then(response => 
-            {
-                setProducts(response)
-            })
-            .catch(error => 
-            {
-                console.error(error)
-            })
-            .finally(() => 
-            {
-                setLoading(false)
-            }) */
     }, [categoryId])
 
     if (loading)

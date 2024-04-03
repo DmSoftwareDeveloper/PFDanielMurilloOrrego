@@ -1,6 +1,5 @@
 import './ItemDetailContainer.css'
 import { useState, useEffect } from "react"
-// import {getProductById} from "../../asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { useParams } from "react-router-dom"
 import { doc, getDoc } from 'firebase/firestore'
@@ -17,7 +16,6 @@ const ItemDetailContainer = () =>
         getDoc(doc(db, 'products', itemId))
           .then((response) => 
           {
-            //console.log(response)
             const product = {id: response.id, ...response.data()}
             setProduct(product)
           })
@@ -29,19 +27,6 @@ const ItemDetailContainer = () =>
           {
             setLoading(false)
           })
-       /* getProductById(itemId)
-            .then(response =>
-            {
-                setProduct(response)
-            })
-            .catch(error => 
-            {
-                console.error(error)
-            })
-            .finally(() => 
-            {
-                setLoading(false)
-            }) */
     }, [itemId])
     return (
         <div className="ItemDetailContainer">
